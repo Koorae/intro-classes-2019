@@ -1,6 +1,7 @@
 package numbers;
 
 import java.math.BigInteger;
+import java.lang.Integer;
 
 /**
  * A simple implementation of Fractions.
@@ -55,6 +56,25 @@ public class Fraction {
     this.denom = BigInteger.valueOf(denom);
   } // Fraction(int, int)
 
+  public Fraction(String frac) {
+    int slashPos = frac.indexOf("/");
+
+    char[] numArray = new char[slashPos];
+    char[] denomArray = new char[frac.length() - slashPos - 1];
+
+    for (int i = 0; i < slashPos; i++) {
+      numArray[i] = frac.charAt(i);
+    }
+    for (int i = slashPos + 1; i < frac.length(); i++) {
+      int n = 0;
+      denomArray[n] = frac.charAt(i);
+      n++;
+    }
+
+    this.num = new BigInteger(String.valueOf(numArray));
+    this.denom = new BigInteger(String.valueOf(denomArray));
+  }
+
   // +---------+------------------------------------------------------
   // | Methods |
   // +---------+
@@ -83,6 +103,7 @@ public class Fraction {
     // Return the computed value
     return new Fraction(resultNumerator, resultDenominator);
   }// add(Fraction)
+
 
   /**
    * Convert this fraction to a string for ease of printing.

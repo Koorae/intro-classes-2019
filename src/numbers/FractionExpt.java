@@ -19,5 +19,9 @@ public class FractionExpt {
     pen.println("First fraction: " + f1);
     pen.println("Second fraction: " + f2);
     pen.println("Sum: " + (f1.add(f2)));
+    
+    Fraction f3;
+    f3 = new Fraction("11/3");
+    pen.println(f3);
   } // main(String[])
 } // class FractionExpt
